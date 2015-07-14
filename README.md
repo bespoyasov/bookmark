@@ -32,7 +32,7 @@ Or pick bookmarks by class `bookmark` and start script like usually jQuery plugi
 
 ```html
 <div class="foo">
-  <h1 class="bookmark" name="Первая закладка" data-hash="first">Заголовок</h1>
+  <h1 class="bookmark" name="First bookmark" data-hash="first">Заголовок</h1>
 </div>
 <script type="text/javascript">
   $(function(){
