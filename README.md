@@ -1,17 +1,15 @@
 # Bookmark.js
 
-На длинных страницах с кучей этажей сложно ориентироваться. Букмарк создаёт ссылки на каждый этаж и добавляет их в навигацию по странице. Уживается с любым дизайном. Прокрутите страницу, чтобы увидеть, как он работает.
+It is difficult to navigate on long pages with many sections. Bookmark.js creates anchors to every section and adds them to menu. It is suitable for every design. Scroll the page down to see how it works.
 
-Ссылки в навигации показывают порядок и длину этажей, а скроллбар — где находится пользователь. Поэтому по умолчанию активная ссылка не отличается от остальных. Если хотите дополнительно выделить активный раздел, перепишите стиль для ссылки с классом `active`.
+Anchors in menu show order and length of sections. Scrollbar shows where user is reading. Because of that active link is "off" by default. If you want to pick out current section rewrite styles for anchors with `active` class.
 
-Букмарк автоматически даст названия ссылкам на этажи, если не найдёт название в атрибуте `name`. Чтобы можно было ссылаться на этаж, в адресную строку он добавит транслитированное название или `data-hash` ссылки. Отключить изменение строки можно атрибутом `data-hashChange`.
-
-Отдельный кайф — как меню появляется и исчезает. Анимация не бесит при скролле как на короткие, так и на длинные расстояния.
+Bookmark.js automatically gets titles for anchors, if doesnt find it in `name` attribute. To hash-navigate be usable it adds title or `data-hash` to location. You can disable the change of address bar by change `data-hasChange`.
 
 
-## C чего начать?
+## First
 
-Добавьте ссылки на скрипт и стили в `<head>` страницы:
+Add links to scripts and styles in `<head>` of the document:
 
 ```html
 <head>
@@ -20,17 +18,17 @@
   <script src="path/to/bookmark.min.js"></script>
 </head>
 ```
-		      
-Добавьте класс bookmarks блоку с закладками:
+
+Add class bookmarks to block contains bookmarks:		      
 
 ```html
 <div class="bookmarks">
-  <div class="bookmark" name="Первая закладка" data-hash="first"></div>
-  <div class="bookmark" name="Вторая закладка" data-hash="second"></div>
+  <div class="bookmark" name="First bookmark" data-hash="first"></div>
+  <div class="bookmark" name="Second bookmark" data-hash="second"></div>
 </div>
 ```
-					
-Или отметьте места-закладки классом bookmark и запустите скрипт, как стандартный плагин:
+		
+Or pick bookmarks by class `bookmark` and start script like usually jQuery plugin:			
 
 ```html
 <div class="foo">
@@ -43,29 +41,29 @@
 </script>
 ```
 
-## Настройка
-Параметры указываются в data-атрибутах блока с закладками. При ручной инициализации передайте объект с параметрами, как аргумент функции-конструктора.
+## Settings
 
-`autoHide` `boolean`, по умолчанию true — автоматически скрывать меню;
+Parameters are data-attributes of bookmarks-contain block. Or it can be an argument of constructor function.
 
-`autoHideTime` `number`, по умолчанию 800 мс — время, после которого меню скроется;
+`autoHide` `boolean`, true — automatically hide menu;
 
-`fadeTime` `number`, по умолчанию 400 мс — скорость исчезновения;
+`autoHideTime` `number`, 800 ms — after this time menu will hide;
 
-`scrollingTime` `number`, по умолчанию 500 мс — длительность прокрутки после клика на ссылку;
+`fadeTime` `number`,  400 ms — time of fade out;
 
-`bookmarkClassName` `string`, по умолчанию «bookmark» — класс якорей-закладок;
+`scrollingTime` `number`, 500 ms — time of scroll from one section to another;
 
-`touchDevices` `boolean`, по умолчанию false — отображение на тач-устройствах. autoHide не работает;
+`bookmarkClassName` `string`, 'bookmar' — class of bookmarks;
 
-`onScrollStart` `function` — вызывается перед прокруткой к разделу;
+`touchDevices` `boolean`, false — how it works on touch devices. autoHide doesnt work;
 
-`onScrollEnd` `function` — вызывается после прокрутки к разделу.
+`onScrollStart` `function` — before scroll to another section;
 
-Параметры `onScrollStart` и `onScrollEnd` можно настроить только при ручной инициализации.
+`onScrollEnd` `function` — right after scroll to another section.
 
-## А можно полный пример?
-Пример с настройкой всех возможных свойств:
+`onScrollStart` and `onScrollEnd` can be managed only by manually initialization.
+
+## Example
 
 ```html
 <head>
@@ -75,7 +73,7 @@
 </head>
 <body>
   <div class="foo" data-touchDevices="false" data-hashChange="false" >
-    <h1 class="bookmark" name="Первая закладка" data-hash="first">Заголовок</h1>
+    <h1 class="bookmark" name="First bookmark" data-hash="first">Title</h1>
   </div>	
   <script type="text/javascript">
     $(function(){
@@ -87,9 +85,8 @@
         bookmarkClassName: 'bookmark',
         onScrollStart: function(curIndex, nextIndex) {},
         onScrollEnd: function(curIndex, nextIndex) {}
-        // curIndex — номер текущего раздела
-        // nextIndex — номер следующего раздела
-        // оба аргумента необязательные
+        // curIndex — index of current seciotn
+        // nextIndex — index of next section
       });
     });
   </script>
