@@ -2,12 +2,12 @@
 
 It is difficult to navigate on long pages with many sections. Bookmark.js creates anchors to every section and adds them to menu. It is suitable for every design. Scroll the page down to see how it works.
 
-Anchors in menu show order and length of sections. Scrollbar shows where user is reading. Because of that active link is "off" by default. If you want to pick out current section rewrite styles for anchors with `active` class.
+Anchors in menu are proportional to order and length of sections. Scrollbar shows where user is reading, so the active link is "off" by default. If you want to distinguish current section rewrite styles for anchors with `active` class.
 
-Bookmark.js automatically gets titles for anchors, if doesnt find it in `name` attribute. To hash-navigate be usable it adds title or `data-hash` to location. You can disable the change of address bar by change `data-hasChange`.
+Bookmark.js automatically names anchors, if it doesn't find anything in `name` attribute. For hash-navigation to be usable it adds title or `data-hash` to location. You can disable the change of address bar by changing `data-hasChange`.
 
 
-## First
+## What's first
 
 Add links to scripts and styles in `<head>` of the document:
 
@@ -19,7 +19,7 @@ Add links to scripts and styles in `<head>` of the document:
 </head>
 ```
 
-Add class bookmarks to block contains bookmarks:		      
+Add class bookmarks to block that contains bookmarks:		      
 
 ```html
 <div class="bookmarks">
@@ -28,7 +28,7 @@ Add class bookmarks to block contains bookmarks:
 </div>
 ```
 		
-Or pick bookmarks by class `bookmark` and start script like usually jQuery plugin:			
+Or mark bookmarks by class `bookmark` and start script like a jQuery plugin:			
 
 ```html
 <div class="foo">
@@ -43,11 +43,9 @@ Or pick bookmarks by class `bookmark` and start script like usually jQuery plugi
 
 ## Settings
 
-Parameters are data-attributes of bookmarks-contain block. Or it can be an argument of constructor function.
-
 `autoHide` `boolean`, true — automatically hide menu;
 
-`autoHideTime` `number`, 800 ms — after this time menu will hide;
+`autoHideTime` `number`, 800 ms — timeout to hide menu;
 
 `fadeTime` `number`,  400 ms — time of fade out;
 
@@ -55,7 +53,7 @@ Parameters are data-attributes of bookmarks-contain block. Or it can be an argum
 
 `bookmarkClassName` `string`, 'bookmar' — class of bookmarks;
 
-`touchDevices` `boolean`, false — how it works on touch devices. autoHide doesnt work;
+`touchDevices` `boolean`, false — enabling on touch devices;
 
 `onScrollStart` `function` — before scroll to another section;
 
