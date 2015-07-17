@@ -51,7 +51,7 @@ Or mark bookmarks by class `bookmark` and start script like a jQuery plugin:
 
 `scrollingTime` `number`, 500 ms — time of scroll from one section to another;
 
-`bookmarkClassName` `string`, 'bookmar' — class of bookmarks;
+`bookmarkClassName` `string`, 'bookmark' — class of bookmarks;
 
 `touchDevices` `boolean`, false — enabling on touch devices;
 
@@ -70,7 +70,7 @@ Or mark bookmarks by class `bookmark` and start script like a jQuery plugin:
   <script src="path/to/bookmark.min.js"></script>
 </head>
 <body>
-  <div class="foo" data-touchDevices="false" data-hashChange="false" >
+  <div class="foo" data-touchDevices="false" data-hashChange="true" >
     <h1 class="bookmark" name="First bookmark" data-hash="first">Title</h1>
   </div>	
   <script type="text/javascript">
@@ -83,10 +83,12 @@ Or mark bookmarks by class `bookmark` and start script like a jQuery plugin:
         bookmarkClassName: 'bookmark',
         onScrollStart: function(curIndex, nextIndex) {},
         onScrollEnd: function(curIndex, nextIndex) {}
-        // curIndex — index of current seciotn
+        // curIndex — index of current section
         // nextIndex — index of next section
       });
     });
   </script>
 </body>
 ```
+
+http://bookmark.bespoyasov.ru
